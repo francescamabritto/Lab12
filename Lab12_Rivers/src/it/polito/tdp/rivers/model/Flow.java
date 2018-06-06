@@ -3,14 +3,25 @@ package it.polito.tdp.rivers.model;
 import java.time.LocalDate;
 
 public class Flow {
+	private int id;
 	private LocalDate day;
 	private double flow;
 	private River river;
 
-	public Flow(LocalDate day, double flow, River river) {
+	public Flow(int id, LocalDate day, double flow, River river) {
+		this.id = id;
 		this.day = day;
 		this.flow = flow;
 		this.river = river;
+	}
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public LocalDate getDay() {
