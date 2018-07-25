@@ -4,18 +4,19 @@ import java.time.LocalDate;
 import java.util.List;
 
 import it.polito.tdp.rivers.db.RiversDAO;
+import it.polito.tdp.rivers.simulazione.Simulazione;
 
 public class Model {
 	private RiversDAO dao;
 	private RiverIdMap riverIdMap;
-	private LocalDate startDate;
-	private LocalDate endDate;
+	private Simulazione sim;
 	
 	private River selectedRiver;
 	
 	
 	public Model() {
 		dao = new RiversDAO();
+		sim = new Simulazione();
 		riverIdMap = new RiverIdMap();
 	}
 	
@@ -56,6 +57,20 @@ public class Model {
 		this.selectedRiver = river;
 		this.selectedRiver.updateAllData((this.dao.getFlowsForRiver(this.selectedRiver)));	
 	}
+
+	public River getSelectedRiver() {
+		return selectedRiver;
+	}
+
+	public double getOccupazioneMedia() {
+		return sim.getcMed();
+	}
+
+	public int getNumFailures() {
+		return sim.getN();
+	}
+	
+	
 	
 	
 

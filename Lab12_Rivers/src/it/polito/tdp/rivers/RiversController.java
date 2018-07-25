@@ -69,7 +69,21 @@ public class RiversController {
 
     @FXML
     void doSimula(ActionEvent event) {
-    	
+    		try {
+    			String stringK = this.txtK.getText();
+    			int k = Integer.parseInt(stringK);
+    			// chimare metodi simulazione!!!
+    			
+    			int n = model.getNumFailures();
+    			double cMed = model.getOccupazioneMedia();
+    			txtResult.appendText("I giorni in cui non si è potuta garantire l'erogazione minima sono: "+ n 
+    					+"\nL'occupazione media è: " + cMed );
+    			
+    		}catch(NumberFormatException nfe) {
+    			nfe.printStackTrace();
+    			this.txtResult.setText("Inserire un valore valido per k");
+    			return;
+    		}
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete

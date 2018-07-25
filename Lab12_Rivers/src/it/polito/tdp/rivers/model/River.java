@@ -68,10 +68,12 @@ public class River {
 		return flows.get(flows.size()-1).getDay();
 	}
 	
+	
 	@Override
 	public String toString() {
 		return name;
 	}
+
 
 	@Override
 	public int hashCode() {
